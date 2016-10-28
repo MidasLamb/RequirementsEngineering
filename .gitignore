@@ -182,3 +182,5 @@ TSWLatexianTemp*
 #kate
 
 *.kate-swp
+
+.DS_Store
