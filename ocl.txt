@@ -1,11 +1,11 @@
-context Worlds
+context Worlds invariant
 group_stage.Participant->includesAll(knockout_stage.participant)
 Alle teams van de knockout stage moeten ook aan de group stage hebben meegedaan.
 
-context Worlds
+context Worlds invariant
 Knockout_stage.Participant->includesAll(winner)
 De winnaar van worlds moet hebben meegedaan in de knockout stage.
 
-context Team
+context Team invariant
 starter_player->excludeAll(reserve_player)
 Een speler is oftewel een starter player oftewel een reserve player, hij kan niet beide tegelijk zijn.
