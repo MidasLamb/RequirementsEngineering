@@ -1,4 +1,4 @@
-# RSVB
+# SBVR
 ## Bedoeling:
 Samenbrengen van resources, en gestructureerde samenvatting proberen te creëeren. Ook proberen 
 
