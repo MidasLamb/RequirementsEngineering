@@ -24,6 +24,9 @@ In order of perceived usefulness:
 ## Voorbeeld definities
 BELANGRIJK: Gebruik juiste font styling, want dat is hoe SBVR structured english is, gewoon engels met font styling.
 
+
+Definitie van __Player__
+
 ```
 __Player__
     Definition:         A __person__ who plays for a __team__
@@ -40,7 +43,8 @@ __Player__ has __role__
 __Player__ has __sumonnerName__
     Necessity:          Each __Player__ has exactly one __sumonnerName__
 ```
-    
+
+Definitie van een relatie:
     
 ```    
 __Player__ plays for __Team__
