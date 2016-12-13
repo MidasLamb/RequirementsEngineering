@@ -34,8 +34,8 @@ __Player__ has __playerID__
 __Player__ has __name__
     Necessity:          Each __Player__ has exactly one __name__
     
-__Player__ has __sumonnerName__
-    Necessity:          Each __Player__ has exactly one __sumonnerName__
+__Player__ has __role__
+    Necessity:          Each __Player__ has exactly one or two __roles__
     
 __Player__ has __sumonnerName__
     Necessity:          Each __Player__ has exactly one __sumonnerName__
