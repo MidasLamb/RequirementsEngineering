@@ -17,6 +17,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage[nohyperlinks]{acronym}
+\usepackage[dutch]{babel}
 \usepackage{babel,lmodern,graphicx,mathptmx,xspace,wasysym,microtype,booktabs,tabularx,relsize,textcomp,longtable,lipsum,colortbl,eurosym,url,multicol,etoolbox,multimedia,pdfpages,fixltx2e,ifluatex,epstopdf}
 \usepackage[olditem,oldenum]{paralist}
 \usepackage[babel=true]{csquotes}
@@ -26,6 +27,12 @@
 \usepackage[notquote]{hanging}
 \usepackage[normalem]{ulem}
 %\usepackage{lua-visual-debug}
+
+
+\uselanguage{dutch}
+\languagepath{dutch}
+\deftranslation[to=dutch]{Example}{Voorbeeld}
+
 
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 \graphicspath{{figures/}}
@@ -343,7 +350,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Example}
+\begin{frame}{Voorbeeld}
 	\vfill
 \includegraphics[scale=0.35]{assets/example1.png}
 \end{frame}
@@ -356,7 +363,7 @@
 	Eenvoudige omzetting van en naar UML:
 	\begin{figure}
 	\includegraphics[scale=0.3]{assets/uml.png}
-	\caption{"it is necessary that each match has at least one game"}
+	\caption{``it is necessary that each match has at least one game''}
 	\end{figure}
 \end{frame}
 
@@ -365,9 +372,9 @@
 \begin{itemize}
 	\item Regel binnen het bedrijf
 	\begin{itemize}
-		\item vb. "Alle werknemers moeten om 10u rapporteren aan het onthaal."
+		\item vb. ``Alle werknemers moeten om 10u rapporteren aan het onthaal.''
 	\end{itemize}
-	\item Bedrijf heeft alle "jurisdictie" over de regels
+	\item Bedrijf heeft alle ``jurisdictie'' over de regels
 	\item Regels of aanzet tot regels zijn niet opgelegd door externe instanties
 	\item Enforceerbaar, niet-ambigu
 	\item Regels zijn onderling onafhankelijk
@@ -389,7 +396,7 @@
 	\begin{enumerate}
 		\item Vocabularies and terminology dictionaries
 		\item Noun and verb concepts
-		\item Definitional and operational business rules
+		\item Definitional and operative business rules
 	\end{enumerate}
 \end{frame}
 
@@ -408,7 +415,7 @@
 		\begin{itemize}
 			\item aangeduid met term
 		\end{itemize}
-		\hspace*{1cm}
+		\vspace*{0.5cm}
 		\item individual noun concepts
 		\includegraphics[width=\linewidth]{assets/individualNounConcept}
 		\begin{itemize}
@@ -418,16 +425,72 @@
 \end{frame}
 
 \begin{frame}{2) Noun concept}
-	% Slide met voorbeeld
-	
+	% TODO Slide met voorbeeld
+	\begin{example}
+		
+	\end{example}
 	% verband met cursus (UML): class vs instance
 \end{frame}
 
-\begin{frame}{2) Verb concept}
+\begin{frame}{2) Definition}
+	\includegraphics[width=\linewidth]{assets/definition}
+	\vspace*{0.35cm}
+	\includegraphics[width=0.65\linewidth]{assets/conceptHasDefinition}
 	
+	% concepts have definitions
+	% = subset
+	
+	% TODO voorbeeld
+	
+	\begin{itemize}
+		\item intensional definition
+		\includegraphics[width=\linewidth]{assets/intensionalDefinition}
+		\item extensional definition
+		\includegraphics[width=\linewidth]{assets/extensionalDefinition}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{2) Verb concept}
+	\includegraphics[width=\linewidth]{assets/verbConcept} \\
+	$ \rightarrow $ Verb concepts have verb concept wordings \\
+	\vspace{0.2cm}
+	\includegraphics[width=\linewidth]{assets/verbConceptWording}
+	
+	\begin{example}
+		\begin{itemize}
+			\item country \textit{is included in} continent
+			\item continent \textit{includes} country
+		\end{itemize}
+	\end{example}
 \end{frame}
 
 \begin{frame}{3) Definitional and operational business rules}
+	\includegraphics[width=0.7\linewidth]{assets/businessRule} \\
+	\includegraphics[width=0.7\linewidth]{assets/businessRuleDerived} \\
+	\includegraphics[width=\linewidth]{assets/businessPolicy}
+	
+	\begin{example}
+		\begin{itemize}
+			\item Policy: Wedstrijden horen eerlijk te verlopen.
+			\item Rule: Een scheidsrechter moet observeren of een wedstrijd eerlijk verloopt en ingrijpen als dit niet het geval is.
+		\end{itemize}
+	\end{example}
+\end{frame}
+
+\begin{frame}{3) Definitional and operative business rules}
+	\begin{itemize}
+		\item Definitional/structural business rule
+		\includegraphics[width=0.7\linewidth]{assets/structuralRule} \\
+		\includegraphics[width=0.7\linewidth]{assets/structuralBusinessRule}
+		
+		\item Operative/behavioral business rule
+		\includegraphics[width=0.7\linewidth]{assets/operativeBusinessRule}
+		
+		\item Enforcement level
+		\begin{itemize}
+			\item Geeft aan hoe strikt de regel wordt gehandhaafd.
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
