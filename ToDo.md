@@ -1,8 +1,9 @@
 # ToDo's
-* Alles samenvaten in één verslag.
-* And-Or decomposition van goalen digitaliseren.
-* And-Or afhankelijkheden maken.
-* UML verder aanvullen met attributen.
+* Alles samenvaten in één verslag. //
+* And-Or decomposition van goalen digitaliseren. //
+* And-Or afhankelijkheden maken. 
+* UML verder aanvullen met attributen. //+
+* Context afmaken //
 * Alles goed nakijken!
 
 # Done
