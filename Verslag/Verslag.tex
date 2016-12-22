@@ -6,6 +6,8 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{listings}
+
 
 % Font
 \renewcommand{\familydefault}{\sfdefault}
@@ -167,20 +169,20 @@
 			\subsection{Dependencies}
 			\begin{figure}[H]
 			\includegraphics[width=\textwidth]{../2-Doelen/istar1.png}
-			\caption{First dependency model in i*}
+			\caption{Eerste Dependency model in i*}
 			\end{figure}
 			\begin{figure}[H]
 				\includegraphics[width=\textwidth]{../2-Doelen/istar2.png}
-				\caption{Second dependency model in i*}
+				\caption{Tweede Dependency model in i*}
 			\end{figure}
 			\begin{figure}[H]
 				\includegraphics[width=\textwidth]{../2-Doelen/istar3.png}
-				\caption{Third dependency model in i*}
+				\caption{Derde Dependency model in i*}
 			\end{figure}
 			\subsection{Rationale}
 			\begin{figure}[H]
 				\includegraphics[width=\textwidth]{../2-Doelen/istar4.png}
-				\caption{Rationale model in i*}
+				\caption{Strategic Rationale model in i*}
 			\end{figure}
 		\section{Scenarios}
 			\subsection{``Planning opstellen''}
@@ -218,8 +220,29 @@
 			Parth Naidu, de coach van ploeg Team SoloMid, wilt Sneaky, een speler van ploeg Cloud 9, toevoegen aan zijn team:
 			\\
 			Parth Naidu, de coach van ploeg Team SoloMid, opent de website. Hij klikt op ``log in'' en logt vervolgens in met zijn persoonlijke inloggegevens. Vervolgens ziet hij een link naar ``ploegen beheren'', waar hij dan ook op klikt. De site brengt hem dan naar een pagina waar hij zijn ploeg kan beheren, op die pagina staat ook een link om een speler toe te voegen. Hij klinkt op deze link en krijgt vervolgens een formulier dat hij kan invullen om een nieuwe speler aan zijn ploeg toe te voegen. Hij vult de gegevens van Sneaky, een speler van ploeg Cloud 9, in op het formulier. Hij probeert dit ingevulde formulier in te vullen. De website weigert deze verandering door te voeren en laat een waarschuwing zien aan Parth Naidu, waar op staat: ``Deze speler speelt al voor een andere ploeg, hij mag niet voor 2 ploegen tegelijk spelen. Hij moet eerst de andere ploeg verlaten vooraleer hij bij een andere ploeg kan toegevoegd worden.''
-			
 			\section{Datamodel}
-			\subsection{UML diagram}
-			\subsection{OCL Constraints}
+				\subsection{UML diagram}
+				\begin{figure}[H]
+					\includegraphics[width=\textwidth]{../4-Datamodel/RE.png}
+					\caption{UML representatie van het model}
+				\end{figure}
+				\subsection{OCL Constraints}
+\begin{lstlisting}[frame=single, language=OCL]
+context Worlds invariant
+group_stage.Participant ->
+	includesAll(knockout_stage.participant)
+\end{lstlisting}
+Alle teams van de knockout stage moeten ook aan de group stage hebben meegedaan. \\
+
+\begin{lstlisting}[frame=single, language=OCL]	
+context Worlds invariant
+Knockout_stage.Participant -> includesAll(winner)
+\end{lstlisting}
+De winnaar van worlds moet hebben meegedaan in de knockout stage. \\
+
+\begin{lstlisting}[frame=single, language=OCL]
+context Team invariant
+starter_player -> excludeAll(reserve_player)
+\end{lstlisting}
+Een speler is oftewel een starter player oftewel een reserve player, hij kan niet beide tegelijk zijn. \\
 \end{document}
