@@ -6,8 +6,6 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{listings}
-
 
 % Font
 \renewcommand{\familydefault}{\sfdefault}
@@ -65,11 +63,16 @@
 						\item League of Legends Terms of Use
 					\end{itemize}
 					\item Bestaande systemen
+					\begin{itemize}
+						\item Vlaamse Besketbal Liga
+					\end{itemize}
 				\end{itemize}
 				\item Context Objects
 				\begin{itemize}
 					\item Spelers
 					\item Scheidsrechters
+					\item Games
+					\item Seizoenen
 					\item Stadium
 					\item Materiaal (pc's, toetsenborden, muizen)
 					\item Internetconnectie
@@ -90,6 +93,8 @@
 					\item Werking van het materiaal
 					\item Werking van het internet
 					\item Veiligheidsmaatregelen
+					\item De games worden gespeeld in het juiste seizoen
+					\item De volgorde van de seizoenen wordt gerespecteerd
 				\end{itemize}
 			\end{itemize}
 			\item Usage Context Facet
@@ -105,7 +110,6 @@
 						\item Wedstrijdleider
 						\item Shoutcasters
 					\end{itemize}
-					\item Documentatie
 					\item Systemen
 					\begin{itemize}
 						\item Andere systemen die resultaten van een competitie bijhouden (voor een andere sport bijv.)
@@ -123,7 +127,8 @@
 				\item Properties and relationships
 				\begin{itemize}
 					\item Gebruik van de user interface
-					\item ...
+					\item Efficiënte planning van de wedstrijden
+					\item Toewijzen van scheidsrechters voor games
 				\end{itemize}
 			\end{itemize}
 			\item IT Context Facet
@@ -131,8 +136,19 @@
 				\item Requirement Sources
 				\begin{itemize}
 					\item Stakeholders
-					\item Documentatie
+					\begin{itemize}
+						\item Wedstrijdleider
+						\item Competitieleider
+						\item Architect
+						\item Webdesigner
+						\item Software developper
+						\item CEO, CTO...
+						\item Technology consultants
+					\end{itemize}
 					\item Systemen
+					\begin{itemize}
+						\item Andere systemen die resultaten van een competitie bijhouden (voor een andere sport bijvoorbeeld)
+					\end{itemize}
 				\end{itemize}
 				\item Context Objects
 				\begin{itemize}
@@ -143,7 +159,7 @@
 					\item Scheidsrechters database
 					\item Zalen database
 					\item Resultaten database
-					\item Streammogelijkheden
+					\item Stream mogelijkheden
 				\end{itemize}
 				\item Properties and relationships
 				\begin{itemize}
@@ -159,9 +175,23 @@
 				\item Requirement Sources
 				\begin{itemize}
 					\item Stakeholders
+					\begin{itemize}
+						\item Requirements engineering
+						\item Architecten
+						\item Competiteleider
+						\item Webdesigner
+						\item Software developpers
+						\item IT-department
+						\item Technology Consultants
+					\end{itemize}
 				\end{itemize}
-				\item Context Objects
-				\item Properties and relationships
+				\item Context Objects, Properties and relationships
+				\begin{itemize}
+					\item Development van web interface
+					\item Website
+					\item Databases
+					\item Integrated Development Environment
+				\end{itemize}
 			\end{itemize}
 		\end{itemize}
 		\newpage
@@ -169,20 +199,20 @@
 			\subsection{Dependencies}
 			\begin{figure}[H]
 			\includegraphics[width=\textwidth]{../2-Doelen/istar1.png}
-			\caption{Eerste Dependency model in i*}
+			\caption{First dependency model in i*}
 			\end{figure}
 			\begin{figure}[H]
 				\includegraphics[width=\textwidth]{../2-Doelen/istar2.png}
-				\caption{Tweede Dependency model in i*}
+				\caption{Second dependency model in i*}
 			\end{figure}
 			\begin{figure}[H]
 				\includegraphics[width=\textwidth]{../2-Doelen/istar3.png}
-				\caption{Derde Dependency model in i*}
+				\caption{Third dependency model in i*}
 			\end{figure}
 			\subsection{Rationale}
 			\begin{figure}[H]
 				\includegraphics[width=\textwidth]{../2-Doelen/istar4.png}
-				\caption{Strategic Rationale model in i*}
+				\caption{Rationale model in i*}
 			\end{figure}
 		\section{Scenarios}
 			\subsection{``Planning opstellen''}
@@ -220,31 +250,8 @@
 			Parth Naidu, de coach van ploeg Team SoloMid, wilt Sneaky, een speler van ploeg Cloud 9, toevoegen aan zijn team:
 			\\
 			Parth Naidu, de coach van ploeg Team SoloMid, opent de website. Hij klikt op ``log in'' en logt vervolgens in met zijn persoonlijke inloggegevens. Vervolgens ziet hij een link naar ``ploegen beheren'', waar hij dan ook op klikt. De site brengt hem dan naar een pagina waar hij zijn ploeg kan beheren, op die pagina staat ook een link om een speler toe te voegen. Hij klinkt op deze link en krijgt vervolgens een formulier dat hij kan invullen om een nieuwe speler aan zijn ploeg toe te voegen. Hij vult de gegevens van Sneaky, een speler van ploeg Cloud 9, in op het formulier. Hij probeert dit ingevulde formulier in te vullen. De website weigert deze verandering door te voeren en laat een waarschuwing zien aan Parth Naidu, waar op staat: ``Deze speler speelt al voor een andere ploeg, hij mag niet voor 2 ploegen tegelijk spelen. Hij moet eerst de andere ploeg verlaten vooraleer hij bij een andere ploeg kan toegevoegd worden.''
+			
 			\section{Datamodel}
-				\subsection{UML diagram}
-				\begin{figure}[H]
-					\includegraphics[width=\textwidth]{../4-Datamodel/RE.png}
-					\caption{UML representatie van het model}
-				\end{figure}
-				\subsection{OCL Constraints}
-\begin{lstlisting}[frame=single, language=OCL]
-context Worlds invariant
-group_stage.Participant ->
-	includesAll(knockout_stage.participant)
-\end{lstlisting}
-Alle teams van de knockout stage moeten ook aan de group stage hebben meegedaan. \\
-
-\begin{lstlisting}[frame=single, language=OCL]	
-context Worlds invariant
-Knockout_stage.Participant -> includesAll(winner)
-\end{lstlisting}
-De winnaar van worlds moet hebben meegedaan in de knockout stage. \\
-
-\begin{lstlisting}[frame=single, language=OCL]
-context Team invariant
-starter_player -> excludeAll(reserve_player)
-\end{lstlisting}
-Een speler is oftewel een starter player oftewel een reserve player, hij kan niet beide tegelijk zijn. \\
-
-	\section{State machine}
+			\subsection{UML diagram}
+			\subsection{OCL Constraints}
 \end{document}
